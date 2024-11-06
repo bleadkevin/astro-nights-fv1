@@ -1,8 +1,8 @@
-## Super Game
+## ⚔🗡⚔🗡⚔   Astro nights   ⚔🗡⚔🗡⚔
 
-> SUPER is a fully on-chain strategy game on Solana, developed by Lunar Flights.
+> Astro Knights is a fully on-chain strategy game.
 
-Rust program can be found here: https://github.com/lunar-flights/super-game
+Rust program can be found here: https://github.com/baymaxfpo/astro-nights-fv1
 
 #### Run locally:
 ```
