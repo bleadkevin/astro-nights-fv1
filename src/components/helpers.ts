@@ -25,10 +25,15 @@ export const getAdjacentTiles = (row: number, col: number, gridMap: Map<string, 
     const tileKey = `${newRow}-${newCol}`;
     const tile = gridMap.get(tileKey);
 
+    const versatile = gridMap.get(tileKey);
+    const titlex = gridMap.get(tileKey);
+
+
     if (tile) {
+      console.log(titlex)
       adjacentTiles.push({ ...tile, moveCost: cost });
     }
   });
-
+  console.log('dex : featpoint')
   return adjacentTiles;
 };
