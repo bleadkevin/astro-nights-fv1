@@ -12,6 +12,8 @@ const App: React.FC = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/join/:gameId" element={<MatchMakingPage />} />
           <Route path="/playground" element={<Playground />} />
+          <Route path="/formultiplayer" element={<Playground />} />
+          <Route path="/onchain" element={<Playground />} />
         </Routes>
       </div>
     </Router>
