@@ -77,6 +77,7 @@ const HomePage: React.FC = () => {
 
       return gamePda.toBase58();
     } catch (error) {
+      console.log(error)
       console.error("Error creating game:", error);
       if (error instanceof Error && error.message.includes("TooManyActiveGames")) {
         toast.error("You have too many active games.");
