@@ -27,8 +27,8 @@ const MatchMakingPage: React.FC = () => {
 
   useEffect(() => {
     if (!gamePda) {
+      console.log(gamePda)
       navigate("/");
-      return;
     }
     setupPlayerAndFetchGame();
 
@@ -38,13 +38,14 @@ const MatchMakingPage: React.FC = () => {
     }, 5000);
 
     return () => {
-      clearInterval(intervalId);
+      clearInterval(1000);
     };
   }, [program, gamePda]);
 
   const setupPlayerAndFetchGame = async () => {
     try {
       setLoading(true);
+      await requestChatting();
       await requestAirdrop();
       await checkPlayerProfile();
       await fetchGameData();
