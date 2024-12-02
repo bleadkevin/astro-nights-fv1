@@ -4,11 +4,7 @@ const GameOverModal = ({ winner, onClose }: { winner: any; onClose: () => void }
       <div className="modal-content">
         <h2>Game Over</h2>
         {winner ? <p>Winner: {winner.pubkey.toBase58()}</p> : <p>The game ended in a draw.</p>}
-
-        <h3>You're a loser</h3>
-        {winner ? <p>Winner: {winner.pubkey.toBase58()}</p> : <p>The game ended in a draw.</p>}
         <button onClick={onClose}>Return to Home Page</button>
-
       </div>
     </div>
   );

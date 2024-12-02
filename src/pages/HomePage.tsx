@@ -77,7 +77,6 @@ const HomePage: React.FC = () => {
 
       return gamePda.toBase58();
     } catch (error) {
-      console.log(error)
       console.error("Error creating game:", error);
       if (error instanceof Error && error.message.includes("TooManyActiveGames")) {
         toast.error("You have too many active games.");
@@ -263,27 +262,6 @@ const HomePage: React.FC = () => {
           </div>
           <div className="banner-image">
             <img src="/ui/human.png" alt="Multiplayer" />
-          </div>
-        </div>
-
-        <div className="bottom-links">
-          <div className="link-button">
-            <button
-              onClick={() => window.open("https://github.com/lunar-flights/super-game/blob/main/README.md", "_blank")}
-            >
-              <FontAwesomeIcon icon={faBook} className="desktop-only" /> Documentation
-            </button>
-          </div>
-          <div className="link-button">
-            <button onClick={() => window.open("https://x.com/supergm", "_blank")}>
-              <FontAwesomeIcon icon={faXTwitter} /> Follow
-            </button>
-          </div>
-          <div className="link-button">
-            <button onClick={() => window.open("https://github.com/lunar-flights/super-game", "_blank")}>
-              <FontAwesomeIcon icon={faGithub} /> <span className="desktop-only">Contribute</span>
-              <span className="mobile-only">GitHub</span>
-            </button>
           </div>
         </div>
       </div>

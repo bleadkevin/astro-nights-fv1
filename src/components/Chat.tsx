@@ -7,12 +7,12 @@ interface Message {
   color: string;
 }
 
-interface ChatBot {
+interface ChatProps {
   playerColor: string;
   playerName: string;
 }
 
-const Chat: React.FC<ChatBot> = ({ playerColor, playerName }) => {
+const Chat: React.FC<ChatProps> = ({ playerColor, playerName }) => {
   const [isChatVisible, setIsChatVisible] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [messageText, setMessageText] = useState('');
@@ -47,6 +47,11 @@ const Chat: React.FC<ChatBot> = ({ playerColor, playerName }) => {
 
   return (
     <div>
+      {!isChatVisible && (
+        <button className="chat-toggle-button" onClick={toggleChatVisibility}>
+          Show Chat
+        </button>
+      )}
       {isChatVisible && (
         <div className="chat-container">
           <div className="chat-header">
@@ -55,15 +60,6 @@ const Chat: React.FC<ChatBot> = ({ playerColor, playerName }) => {
               Hide
             </button>
           </div>
-          
-          <div className="chat-input-container">
-            <textarea
-              value={messageText}
-              onChange={handleMessageInputChange}
-              placeholder="Type a message..."
-            ></textarea>
-            <button onClick={handleSendMessage}>Send</button>
-          </div>
           <div className="chat-messages">
             {messages.map((msg, index) => (
               <p key={index}>
@@ -71,6 +67,14 @@ const Chat: React.FC<ChatBot> = ({ playerColor, playerName }) => {
               </p>
             ))}
             <div ref={messagesEndRef} />
+          </div>
+          <div className="chat-input-container">
+            <textarea
+              value={messageText}
+              onChange={handleMessageInputChange}
+              placeholder="Type a message..."
+            ></textarea>
+            <button onClick={handleSendMessage}>Send</button>
           </div>
         </div>
       )}
