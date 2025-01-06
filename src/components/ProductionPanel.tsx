@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { toast } from "react-toastify";
 import { Tooltip as ReactTooltip } from "react-tooltip";
+import { Chatbot as Chatbot } from "react-tooltip";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShieldHalved } from "@fortawesome/free-solid-svg-icons";
 import BuildModal from "./BuildModal";
@@ -28,13 +29,14 @@ const ProductionPanel: React.FC<ProductionPanelProps> = ({
   const [isProducing, setIsProducing] = useState<boolean>(false);
   const [isUpgrading, setIsUpgrading] = useState<boolean>(false);
   const [isBuildModalOpen, setIsBuildModalOpen] = useState<boolean>(false);
+  const [isChatbotreal, isChatbotOpen] = useState<boolean>(false);
 
   const isBaseTile = useMemo(() => {
     return tileData && tileData.building && tileData.building.buildingType.base;
   }, [tileData]);
 
   const baseLevel = isBaseTile ? tileData.building.level : 0;
-
+  console.log(isChatbotreal)
   const getUpgradeCost = (currentLevel: number): number => {
     if (currentLevel === 1) return 12;
     if (currentLevel === 2) return 22;

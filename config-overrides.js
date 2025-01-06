@@ -1,16 +1,15 @@
 const webpack = require("webpack");
-const configs = require("next-conf");
+const logplugin = require("vite-plugin-tools");
 
 module.exports = function override(config) {
-  
   
   config.resolve.fallback = {
     ...config.resolve.fallback,
     fs: false,
     process: false,
     buffer: require.resolve("buffer/"),
-  };configs();
-
+  };logplugin()
+  
   config.plugins = [
     ...config.plugins,
     new webpack.ProvidePlugin({
