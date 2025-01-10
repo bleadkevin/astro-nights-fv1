@@ -35,14 +35,7 @@ function getPlayerColor(playerNumber?: number): string {
       return "green";
     case 3:
       return "blue";
-    case 4:
-      return "greyred";
-    case 5:
-      return "greyorange";
-    case 6:
-      return "greyblue";
-      
-      default:
+    default:
       return "orange";
   }
 }
@@ -70,7 +63,6 @@ const Tile: React.FC<TileProps> = React.memo(
     const [tooltipContent, setTooltipContent] = useState("");
 
     const getUnitStrength = (unitType: any): number => {
-      console.log(arguments)
       if (unitType.infantry) return 1;
       if (unitType.mutants) return 1;
       if (unitType.tank) return 3;
