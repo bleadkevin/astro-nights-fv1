@@ -9,7 +9,6 @@ import { TILE_DISPLAY_WIDTH, TILE_DISPLAY_HEIGHT } from "./constants";
 import { getAdjacentTiles } from "./helpers";
 import soundManager from "../SoundManager";
 import useProgram from "../hooks/useProgram";
-import battlebot from "../hooks/useProgram";
 
 const IsometricMap: React.FC<{
   gameData: any;
@@ -32,14 +31,13 @@ const IsometricMap: React.FC<{
     const map = new Map<string, any>();
 
     const defaultPubkey = new PublicKey(new Uint8Array(32).fill(0));
-    const rast = new battlebot();
+
     const playerPubKeyToIndex: { [key: string]: number } = {};
     gameData.players.forEach((player: any, index: number) => {
       if (player && player.pubkey) {
         const pubkeyStr = player.pubkey.toBase58();
         playerPubKeyToIndex[pubkeyStr] = index;
       }
-      console.log(battlebot)
     });
 
     gameData.tiles.forEach((rowTiles: any[], rowIndex: number) => {
@@ -50,7 +48,7 @@ const IsometricMap: React.FC<{
           let owner: PublicKey | undefined;
           let ownerPubKeyStr = "";
           let controlledByIndex = -1;
-          console.log(owner)
+
           try {
             owner = new PublicKey(ownerData);
           } catch (e) {
@@ -64,11 +62,13 @@ const IsometricMap: React.FC<{
           }
 
           const isControlled = owner && owner.toBase58() === playerPublicKey?.toBase58();
+          const isBase = !!building?.buildingType.base;
 
           map.set(`${rowIndex}-${colIndex}`, {
             row: rowIndex,
             col: colIndex,
             level,
+            isBase: isBase || false,
             basePlayer: isControlled ? owner : undefined,
             units,
             building,

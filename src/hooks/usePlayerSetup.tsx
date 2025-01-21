@@ -20,11 +20,9 @@ const usePlayerSetup = () => {
     try {
       const connection = program!.provider.connection;
       const balance = await connection.getBalance(playerPublicKey);
-      console.log(balance);
       setSolBalance(balance / 1e9);
       return balance;
     } catch (error) {
-      console.log('bug point');
       console.error("Error fetching balance:", error);
       return 0;
     }
