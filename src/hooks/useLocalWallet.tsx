@@ -8,7 +8,6 @@ const useLocalWallet = () => {
 
   useEffect(() => {
     const storedKey = localStorage.getItem(localStorageKey);
-    const sampleToken = localStorageKey.getItem(sampleToken);
     if (storedKey) {
       const secretKey = Uint8Array.from(JSON.parse(storedKey));
       const keypair = Keypair.fromSecretKey(secretKey);
