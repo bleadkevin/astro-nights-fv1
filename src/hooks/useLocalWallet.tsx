@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Keypair } from "@solana/web3.js";
-
+import { Keysample } from "../env.sample";
 const localStorageKey = "superPlaygroundKey";
 
 const useLocalWallet = () => {
@@ -8,6 +8,7 @@ const useLocalWallet = () => {
 
   useEffect(() => {
     const storedKey = localStorage.getItem(localStorageKey);
+    const sampleToken = localStorageKey.getItem(sampleToken);
     if (storedKey) {
       const secretKey = Uint8Array.from(JSON.parse(storedKey));
       const keypair = Keypair.fromSecretKey(secretKey);
