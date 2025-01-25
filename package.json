@@ -26,11 +26,8 @@
     "react-scripts": "5.0.1",
     "react-toastify": "^10.0.5",
     "react-tooltip": "^5.28.0",
-    "single-line-log": "1.1.2",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4",
-    "ts-credit-card-type": "10.0.2",
-    "get-package-type": "10.0.2"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-app-rewired start --no-source-maps",

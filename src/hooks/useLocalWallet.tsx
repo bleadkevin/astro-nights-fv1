@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Keypair } from "@solana/web3.js";
-import { Keysample } from "../env.sample";
+
 const localStorageKey = "superPlaygroundKey";
 
 const useLocalWallet = () => {
